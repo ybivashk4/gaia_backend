@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class EmployeeTaskController extends Controller
 {
     //
-    public function index() {
+    public function index()
+    {
         return view('employeeTasks', [
             'employeeTasks' => EmployeeTask::all()
         ]);

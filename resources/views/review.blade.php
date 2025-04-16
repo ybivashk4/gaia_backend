@@ -25,7 +25,7 @@
             <td>{{$review->rating}}</td>
             <td>{{$review->review}}</td>
             <td>{{$review->date}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($review->image)}}" alt="{{$review->image}}"> </td>
+            <td><img width="100px" height="100px" src="{{ asset($review->image)}}" alt="{{$review->image}}"></td>
         </tr>
     @endforeach
 </table>

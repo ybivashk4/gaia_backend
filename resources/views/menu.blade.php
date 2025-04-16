@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Меню:</h2>
+<h2>Меню:</h2>
 <table border="1">
     <thread>
         <td>id</td>
@@ -27,7 +27,7 @@
             <td>{{$menu_item->description}}</td>
             <td>{{$menu_item->price}}</td>
             <td>{{$menu_item->allergens}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($menu_item->image)}}" alt="{{$menu_item->image}}"> </td>
+            <td><img width="100px" height="100px" src="{{ asset($menu_item->image)}}" alt="{{$menu_item->image}}"></td>
         </tr>
     @endforeach
 </table>

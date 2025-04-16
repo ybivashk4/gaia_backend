@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>{{$param}}</h2>
+<h2>{{$param}}</h2>
 </body>
 </html>

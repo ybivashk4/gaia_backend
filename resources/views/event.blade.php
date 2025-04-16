@@ -23,7 +23,8 @@
             <td>{{$event_item->title}}</td>
             <td>{{$event_item->description}}</td>
             <td>{{$event_item->date}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($event_item->image)}}" alt="{{$event_item->image}}"> </td>
+            <td><img width="100px" height="100px" src="{{ asset($event_item->image)}}" alt="{{$event_item->image}}">
+            </td>
         </tr>
     @endforeach
 </table>

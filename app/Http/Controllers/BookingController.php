@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     //
-    public function index() {
+    public function index()
+    {
         return view('booking', [
             'booking' => Booking::all()
         ]);

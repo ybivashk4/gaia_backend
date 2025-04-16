@@ -26,7 +26,7 @@
             <td>{{$hall_item->description}}</td>
             <td>{{$hall_item->capacity}}</td>
             <td>{{$hall_item->allergens}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($hall_item->image)}}" alt="{{$hall_item->image}}"> </td>
+            <td><img width="100px" height="100px" src="{{ asset($hall_item->image)}}" alt="{{$hall_item->image}}"></td>
         </tr>
     @endforeach
 </table>

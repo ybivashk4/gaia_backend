@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class EmployeeScheduleController extends Controller
 {
     //
-    public function index () {
+    public function index()
+    {
         return view('employeeSchedules', [
             'employeeSchedules' => EmployeeSchedule::all()
         ]);

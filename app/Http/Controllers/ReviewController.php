@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
     //
-    public function index() {
+    public function index()
+    {
         return view('review', ['reviews' => Review::all()]);
     }
 }

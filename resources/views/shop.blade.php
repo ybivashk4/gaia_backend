@@ -25,7 +25,7 @@
             <td>{{$shop_item->name}}</td>
             <td>{{$shop_item->description}}</td>
             <td>{{$shop_item->price}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($shop_item->image)}}" alt="{{$shop_item->image}}"> </td>
+            <td><img width="100px" height="100px" src="{{ asset($shop_item->image)}}" alt="{{$shop_item->image}}"></td>
         </tr>
     @endforeach
 </table>
