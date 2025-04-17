@@ -8,8 +8,6 @@ use App\Http\Controllers\HallController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ShopController;
-use App\Models\EmployeeSchedule;
-use App\Models\EmployeeTask;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
