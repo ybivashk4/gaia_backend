@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h2>Меню:</h2>
+<h2>Задачи сотрудников:</h2>
 <table border="1">
     <thread>
         <td>name</td>
@@ -16,6 +16,7 @@
         <td>task status</td>
         <td>task created at</td>
         <td>task completed at</td>
+        <td>action</td>
     </thread>
     @foreach($employeeTasks as $employeeTasks_item)
         <tr>
@@ -24,8 +25,13 @@
             <td>{{$employeeTasks_item->task_status}}</td>
             <td>{{ $employeeTasks_item->task_creaated_at}}</td>
             <td>{{ $employeeTasks_item->tassk_completed_at}}</td>
+            <td>
+                <a href="{{url('employeeTasks/edit') . '/' . $employeeTasks_item->id}}">edit</a>
+                <a href="{{url('employeeTasks/delete') . '/' . $employeeTasks_item->id}}">delete</a>
+            </td>
         </tr>
     @endforeach
 </table>
+<a href="{{url('employeeTasks/create')}}">create</a>
 </body>
 </html>

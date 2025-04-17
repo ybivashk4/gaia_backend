@@ -16,6 +16,7 @@
         <td>description</td>
         <td>date</td>
         <td>image</td>
+        <td>actions</td>
     </thread>
     @foreach($event as $event_item)
         <tr>
@@ -23,10 +24,16 @@
             <td>{{$event_item->title}}</td>
             <td>{{$event_item->description}}</td>
             <td>{{$event_item->date}}</td>
-            <td><img width="100px" height="100px" src="{{ asset($event_item->image)}}" alt="{{$event_item->image}}">
+            <td>
+                <img width="100px" height="100px" src="{{ asset($event_item->image)}}" alt="{{$event_item->image}}">
+            </td>
+            <td>
+                <a href="{{url('event/edit' . '/' . $event_item->id)}}">edit</a>
+                <a href="{{url('event/delete' . '/' . $event_item->id)}}">delete</a>
             </td>
         </tr>
     @endforeach
 </table>
+<a href="{{url('event/create')}}">create</a>
 </body>
 </html>

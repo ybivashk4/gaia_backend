@@ -18,6 +18,7 @@
         <td>num_uf_guests</td>
         <td>additional_service</td>
         <td>status</td>
+        <td>Actions</td>
     </thread>
     @foreach($booking as $booking_item)
         <tr>
@@ -28,8 +29,15 @@
             <td>{{$booking_item->num_uf_guests}}</td>
             <td>{{$booking_item->additional_service}}</td>
             <td>{{$booking_item->status}}</td>
+            <td>
+                <a href="{{url('booking/delete/') . '/' . $booking_item->id}}">delete</a>
+                <br>
+                <a href="{{url('booking/edit') . '/' . $booking_item->id}}">edit</a>
+            </td>
         </tr>
     @endforeach
 </table>
+<br>
+<a href="{{url('booking/create')}}">create</a>
 </body>
 </html>

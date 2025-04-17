@@ -9,6 +9,7 @@ class EmployeeSchedule extends Model
 {
     //
     protected $table = 'employeeSchedules';
+    protected $fillable = ['user_id', 'start_time', 'end_time'];
 
     public function user(): BelongsTo
     {

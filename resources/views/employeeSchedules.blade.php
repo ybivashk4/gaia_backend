@@ -8,20 +8,28 @@
     <title>Document</title>
 </head>
 <body>
-<h2>Меню:</h2>
+<h2>Расписание сотрудников:</h2>
 <table border="1">
     <thread>
         <td>name</td>
         <td>start</td>
         <td>end</td>
+        <td>action</td>
     </thread>
     @foreach($employeeSchedules as $employeeSchedule_item)
         <tr>
             <td>{{$employeeSchedule_item->user->name}}</td>
             <td>{{$employeeSchedule_item->strt_time}}</td>
             <td>{{$employeeSchedule_item->end_time}}</td>
+            <td>
+                <a href="{{url('employeeSchedule/edit' . '/' . $employeeSchedule_item->id)}}">edit</a>
+                <a href="{{url('employeeSchedule/delete' . '/' . $employeeSchedule_item->id)}}">delete</a>
+            </td>
         </tr>
     @endforeach
 </table>
+<br>
+<a href="{{url('employeeSchedule/create')}}">create</a>
+
 </body>
 </html>
