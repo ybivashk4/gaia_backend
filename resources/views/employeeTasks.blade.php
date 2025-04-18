@@ -23,8 +23,8 @@
             <td>{{$employeeTasks_item->employee->name}}</td>
             <td>{{$employeeTasks_item->task_description}}</td>
             <td>{{$employeeTasks_item->task_status}}</td>
-            <td>{{ $employeeTasks_item->task_creaated_at}}</td>
-            <td>{{ $employeeTasks_item->tassk_completed_at}}</td>
+            <td>{{ $employeeTasks_item->task_created_at}}</td>
+            <td>{{ $employeeTasks_item->task_completed_at}}</td>
             <td>
                 <a href="{{url('employeeTasks/edit') . '/' . $employeeTasks_item->id}}">edit</a>
                 <a href="{{url('employeeTasks/delete') . '/' . $employeeTasks_item->id}}">delete</a>
