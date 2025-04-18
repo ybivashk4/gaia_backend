@@ -18,6 +18,7 @@
         <td>price</td>
         <td>allergens</td>
         <td>image</td>
+        <td>actions</td>
     </thread>
     @foreach($hall as $hall_item)
         <tr>
@@ -27,8 +28,14 @@
             <td>{{$hall_item->capacity}}</td>
             <td>{{$hall_item->allergens}}</td>
             <td><img width="100px" height="100px" src="{{ asset($hall_item->image)}}" alt="{{$hall_item->image}}"></td>
+            <td>
+                <a href="{{url('hall/edit') . '/' . $hall_item->id}}">edit</a>
+                <a href="{{url('hall/delete') . '/' . $hall_item->id}}">delete</a>
+
+            </td>
         </tr>
     @endforeach
 </table>
+<a href="{{url('hall/create')}}">create</a>
 </body>
 </html>

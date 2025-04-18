@@ -18,6 +18,7 @@
         <td>price</td>
         <td>allergens</td>
         <td>image</td>
+        <td>actions</td>
     </thread>
     @foreach($menu as $menu_item)
         <tr>
@@ -28,8 +29,13 @@
             <td>{{$menu_item->price}}</td>
             <td>{{$menu_item->allergens}}</td>
             <td><img width="100px" height="100px" src="{{ asset($menu_item->image)}}" alt="{{$menu_item->image}}"></td>
+            <td>
+                <a href="{{url('menu/edit' . '/' . $menu_item->id)}}">edit</a>
+                <a href="{{url('menu/delete' . '/' . $menu_item->id)}}">delete</a>
+            </td>
         </tr>
     @endforeach
 </table>
+<a href="{{url('menu/create')}}">create</a>
 </body>
 </html>

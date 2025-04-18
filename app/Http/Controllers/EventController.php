@@ -31,7 +31,7 @@ class EventController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('images', $filename);
+            move_uploaded_file($image->getRealPath(), public_path('images/' . $filename));
             $validated['image'] = $filename;
         }
 
@@ -53,13 +53,13 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'date' => 'required|date',
-            'image' => 'required|image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
+            $image = $validated['image']->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('images', $filename, 'public');
+            move_uploaded_file($image->getRealPath(), public_path('images/' . $filename));
             $validated['image'] = $filename;
         }
 

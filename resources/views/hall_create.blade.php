@@ -13,13 +13,21 @@
     </style>
 </head>
 <body>
-<h2>Создание эвента</h2>
-<form method="post" action={{url('event/update' . '/' . $event->id)}}>
+<h2>Добавление зала</h2>
+<form enctype="multipart/form-data" method="post" action={{url('hall')}}>
     @csrf
 
-    <label>title</label>
-    <input type="text" name="title" value="{{old('title')}}"/>
-    @error('title')
+    <label>name</label>
+    <input type="text" name="name" value="{{old('name')}}"/>
+    @error('name')
+    <div class="wrong">{{$message}}</div>
+    @enderror
+
+    <br>
+
+    <label>capacity</label>
+    <input type="text" name="capacity" value="{{old('capacity')}}"/>
+    @error('capacity')
     <div class="wrong">{{$message}}</div>
     @enderror
 
@@ -28,14 +36,6 @@
     <label>description</label>
     <input type="text" name="description" value="{{old('description')}}"/>
     @error('description')
-    <div class="wrong">{{$message}}</div>
-    @enderror
-
-    <br>
-
-    <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
-    @error('date')
     <div class="wrong">{{$message}}</div>
     @enderror
 

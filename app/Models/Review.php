@@ -10,6 +10,8 @@ class Review extends Model
     //
     protected $table = 'reviews';
 
+    protected $fillable = ['user_id', 'rating', 'review', 'image', 'date'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

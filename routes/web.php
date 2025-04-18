@@ -47,8 +47,31 @@ Route::get('/event/edit/{id}', [EventController::class, 'edit']);
 Route::post('/event/update/{id}', [EventController::class, 'update']);
 Route::get('/event/delete/{id}', [EventController::class, 'delete']);
 
+Route::get('/hall', [HallController::class, 'index']);
+Route::get('/hall/create', [HallController::class, 'create']);
+Route::post('/hall', [HallController::class, 'store']);
+Route::get('/hall/edit/{id}', [HallController::class, 'edit']);
+Route::post('/hall/update/{id}', [HallController::class, 'update']);
+Route::get('/hall/delete/{id}', [HallController::class, 'delete']);
 
 Route::get('/menu', [MenuController::class, 'index']);
-Route::get('/hall', [HallController::class, 'index']);
+Route::get('/menu/create', [MenuController::class, 'create']);
+Route::post('/menu', [MenuController::class, 'store']);
+Route::get('/menu/edit/{id}', [MenuController::class, 'edit']);
+Route::post('/menu/update/{id}', [MenuController::class, 'update']);
+Route::get('/menu/delete/{id}', [MenuController::class, 'delete']);
+
 Route::get('/review', [ReviewController::class, 'index']);
+Route::get('/review/create', [ReviewController::class, 'create']);
+Route::post('/review', [ReviewController::class, 'store']);
+Route::get('/review/edit/{id}', [ReviewController::class, 'edit']);
+Route::post('/review/update/{id}', [ReviewController::class, 'update']);
+Route::get('/review/delete/{id}', [ReviewController::class, 'delete']);
+
 Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/shop/create', [ShopController::class, 'create']);
+Route::post('/shop', [ShopController::class, 'store']);
+Route::get('/shop/edit/{id}', [ShopController::class, 'edit']);
+Route::post('/shop/update/{id}', [ShopController::class, 'update']);
+Route::get('/shop/delete/{id}', [ShopController::class, 'delete']);
+

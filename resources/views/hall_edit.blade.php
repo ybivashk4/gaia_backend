@@ -14,12 +14,20 @@
 </head>
 <body>
 <h2>Создание эвента</h2>
-<form method="post" action={{url('event/update' . '/' . $event->id)}}>
+<form enctype="multipart/form-data" method="post" action={{url('hall/update' . '/' . $hall->id)}}>
     @csrf
 
-    <label>title</label>
-    <input type="text" name="title" value="{{old('title')}}"/>
-    @error('title')
+    <label>name</label>
+    <input type="text" name="name" value="{{old('name')}}"/>
+    @error('name')
+    <div class="wrong">{{$message}}</div>
+    @enderror
+
+    <br>
+
+    <label>capacity</label>
+    <input type="text" name="capacity" value="{{old('capacity')}}"/>
+    @error('capacity')
     <div class="wrong">{{$message}}</div>
     @enderror
 
@@ -33,14 +41,6 @@
 
     <br>
 
-    <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
-    @error('date')
-    <div class="wrong">{{$message}}</div>
-    @enderror
-
-    <br>
-
     <label>image</label>
     <input type="file" accept="image/*" name="image" value="{{old('image')}}" alt="wrong image"/>
     @error('image')
@@ -49,7 +49,6 @@
 
     <br>
     <input type="submit">
-
 </form>
 </body>
 </html>

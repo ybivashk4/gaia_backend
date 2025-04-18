@@ -13,29 +13,32 @@
     </style>
 </head>
 <body>
-<h2>Создание эвента</h2>
-<form method="post" action={{url('event/update' . '/' . $event->id)}}>
+<h2>Отзывы</h2>
+<form enctype="multipart/form-data" method="post" action={{url('review/update') . '/' . $review->id}}>
     @csrf
+    <select name="user_id">
+        @foreach($users as $user)
+            <option value="{{$user->id}}" @if($user->id == old('user_id')) selected @endif>
+                {{$user->name}}
+            </option>
+        @endforeach
+    </select>
+    @error('user_id')
+    <div class="wrong">{{$message}}</div>
+    @enderror
+    <br>
 
-    <label>title</label>
-    <input type="text" name="title" value="{{old('title')}}"/>
-    @error('title')
+    <label>rating</label>
+    <input type="text" name="rating" value="{{old('rating')}}"/>
+    @error('rating')
     <div class="wrong">{{$message}}</div>
     @enderror
 
     <br>
 
-    <label>description</label>
-    <input type="text" name="description" value="{{old('description')}}"/>
-    @error('description')
-    <div class="wrong">{{$message}}</div>
-    @enderror
-
-    <br>
-
-    <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
-    @error('date')
+    <label>review</label>
+    <input type="text" name="review" value="{{old('review')}}"/>
+    @error('review')
     <div class="wrong">{{$message}}</div>
     @enderror
 
@@ -44,6 +47,14 @@
     <label>image</label>
     <input type="file" accept="image/*" name="image" value="{{old('image')}}" alt="wrong image"/>
     @error('image')
+    <div class="wrong">{{$message}}</div>
+    @enderror
+
+    <br>
+
+    <label>date</label>
+    <input type="date" name="date" value="{{old('date')}}"/>
+    @error('date')
     <div class="wrong">{{$message}}</div>
     @enderror
 
