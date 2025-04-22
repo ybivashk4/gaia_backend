@@ -27,7 +27,7 @@ class HallController extends Controller
             'name' => 'required|string',
             'capacity' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|image'
+            'image' => 'image'
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');

@@ -18,7 +18,7 @@
     @csrf
 
     <label>category</label>
-    <input type="text" name="category" value="{{old('category')}}"/>
+    <input type="text" name="category" value="@if(old('category')) {{old('category')}} @else {{$shop->category}} @endif"/>
     @error('category')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -26,7 +26,8 @@
     <br>
 
     <label>name</label>
-    <input type="text" name="name" value="{{old('name')}}"/>
+    <input type="text" name="name" value="@if(old('name')) {{old('name')}} @else {{$shop->name}} @endif"/>
+
     @error('name')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -34,7 +35,7 @@
     <br>
 
     <label>description</label>
-    <input type="text" name="description" value="{{old('description')}}"/>
+    <input type="text" name="description" value="@if(old('description')) {{old('description')}} @else {{$shop->description}} @endif"/>
     @error('description')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -42,7 +43,7 @@
     <br>
 
     <label>price</label>
-    <input type="text" name="price" value="{{old('price')}}"/>
+    <input type="text" name="price" value="@if(old('price')) {{old('price')}} @else {{$shop->price}} @endif"/>
     @error('price')
     <div class="wrong">{{$message}}</div>
     @enderror

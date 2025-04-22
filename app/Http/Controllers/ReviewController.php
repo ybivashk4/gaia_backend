@@ -28,7 +28,7 @@ class ReviewController extends Controller
             'user_id' => 'required|integer',
             'rating' => 'required|decimal:1,2',
             'review' => 'required|string',
-            'image' => 'required|image',
+            'image' => 'image',
             'date' => 'required|date'
         ]);
         if ($request->hasFile('image')) {

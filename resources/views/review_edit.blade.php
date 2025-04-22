@@ -29,7 +29,7 @@
     <br>
 
     <label>rating</label>
-    <input type="text" name="rating" value="{{old('rating')}}"/>
+    <input type="text" name="rating" value="@if(old('rating')) {{old('rating')}} @else {{$review->rating}} @endif"/>
     @error('rating')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -37,7 +37,7 @@
     <br>
 
     <label>review</label>
-    <input type="text" name="review" value="{{old('review')}}"/>
+    <input type="text" name="review" value="@if(old('review')) {{old('review')}} @else {{$review->review}} @endif"/>
     @error('review')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -53,7 +53,7 @@
     <br>
 
     <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
+    <input type="datetime-local" name="date" value="@if(old('date')) {{old('date')}} @else {{$review->date}} @endif"/>
     @error('date')
     <div class="wrong">{{$message}}</div>
     @enderror

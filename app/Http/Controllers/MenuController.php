@@ -57,7 +57,7 @@ class MenuController extends Controller
             'description' => 'required|string',
             'price' => 'required|integer',
             'allergens' => 'required|string',
-            'image' => 'required|image'
+            'image' => 'image'
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');

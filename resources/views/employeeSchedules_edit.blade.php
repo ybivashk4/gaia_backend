@@ -29,7 +29,8 @@
     <br>
 
     <label>start time</label>
-    <input type="date" name="start_time" value="{{old('start_time')}}"/>
+    <input type="datetime-local" name="start_time" value="@if(old('start_time')) {{old('start_time')}} @else {{$employeeSchedule->start_time}} @endif"/>
+
     @error('start_time')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -37,7 +38,7 @@
     <br>
 
     <label>end time</label>
-    <input type="date" name="end_time" value="{{old('end_time')}}"/>
+    <input type="datetime-local" name="end_time" value="@if(old('end_time')) {{old('end_time')}} @else {{$employeeSchedule->end_time}} @endif"/>
     @error('end_time')
     <div class="wrong">{{$message}}</div>
     @enderror

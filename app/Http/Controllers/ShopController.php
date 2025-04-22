@@ -25,7 +25,7 @@ class ShopController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|integer',
-            'image' => 'required|image',
+            'image' => 'image',
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');

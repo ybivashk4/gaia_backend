@@ -18,7 +18,8 @@
     @csrf
 
     <label>name</label>
-    <input type="text" name="name" value="{{old('name')}}"/>
+    <input type="text" name="name" value="@if(old('name')) {{old('name')}} @else {{$hall->name}} @endif"/>
+
     @error('name')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -26,7 +27,7 @@
     <br>
 
     <label>capacity</label>
-    <input type="text" name="capacity" value="{{old('capacity')}}"/>
+    <input type="text" name="capacity" value="@if(old('capacity')) {{old('capacity')}} @else {{$hall->capacity}} @endif"/>
     @error('capacity')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -34,7 +35,7 @@
     <br>
 
     <label>description</label>
-    <input type="text" name="description" value="{{old('description')}}"/>
+    <input type="text" name="description" value="@if(old('description')) {{old('description')}} @else {{$hall->description}} @endif"/>
     @error('description')
     <div class="wrong">{{$message}}</div>
     @enderror

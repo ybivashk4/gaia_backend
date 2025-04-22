@@ -30,7 +30,7 @@
 
 
     <label>start time</label>
-    <input type="date" name="start_time" value="{{old('start_time')}}"/>
+    <input type="datetime-local" name="start_time" value="{{old('start_time')}}"/>
     @error('start_time')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -38,7 +38,7 @@
     <br>
 
     <label>end time</label>
-    <input type="date" name="end_time" value="{{old('end_time')}}"/>
+    <input type="datetime-local" name="end_time" value="{{old('end_time')}}"/>
     @error('end_time')
     <div class="wrong">{{$message}}</div>
     @enderror

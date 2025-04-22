@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<h2>адачи сотрудников:</h2>
+<h2>Задачи сотрудников:</h2>
 <form method="post" action={{url('employeeTasks')}}>
     @csrf
     <select name="employee_id">
@@ -45,7 +45,7 @@
     <br>
 
     <label>task created</label>
-    <input type="date" name="task_created_at" value="{{old('task_created_at')}}"/>
+    <input type="datetime-local" name="task_created_at" value="{{old('task_created_at')}}"/>
     @error('task_created_at')
     <div class="wrong">{{$message}}</div>
     @enderror

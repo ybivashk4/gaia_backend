@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<h2>адачи сотрудников:</h2>
+<h2>Задачи сотрудников:</h2>
 <form method="post" action={{url('employeeTasks/update' . '/' . $employeeTask->id)}}>
     @csrf
     <select name="employee_id">
@@ -29,7 +29,7 @@
     <br>
 
     <label>description</label>
-    <input type="text" name="task_description" value="{{old('task_description')}}"/>
+    <input type="text" name="task_description" value="@if(old('task_description')) {{old('task_description')}} @else {{$employeeTask->task_description}} @endif"/>
     @error('task_description')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -37,7 +37,7 @@
     <br>
 
     <label>status</label>
-    <input type="text" name="task_status" value="{{old('task_status')}}"/>
+    <input type="text" name="task_status" value="@if(old('task_status')) {{old('task_status')}} @else {{$employeeTask->task_status}} @endif"/>
     @error('task_status')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -45,7 +45,7 @@
     <br>
 
     <label>task created</label>
-    <input type="date" name="task_created_at" value="{{old('task_created_at')}}"/>
+    <input type="datetime-local" name="task_created_at" value="@if(old('task_created_at')) {{old('task_created_at')}} @else {{$employeeTask->task_created_at}} @endif"/>
     @error('task_created_at')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -53,7 +53,7 @@
     <br>
 
     <label>task complete</label>
-    <input type="date" name="task_completed_at" value="{{old('task_completed_at')}}"/>
+    <input type="datetime-local" name="task_completed_at" value="@if(old('task_completed_at')) {{old('task_completed_at')}} @else {{$employeeTask->task_completed_at}} @endif"/>
     @error('task_completed_at')
     <div class="wrong">{{$message}}</div>
     @enderror

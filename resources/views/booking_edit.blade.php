@@ -42,7 +42,8 @@
     <br>
 
     <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
+    <input type="datetime-local" name="date" value="@if(old('date')) {{old('date')}} @else {{$booking->date}} @endif"/>
+
     @error('date')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -50,7 +51,7 @@
     <br>
 
     <label>num of guests</label>
-    <input type="text" name="num_uf_guests" value="{{old('num_uf_guests')}}"/>
+    <input type="text" name="num_uf_guests" value="@if(old('num_uf_guests')) {{old('num_uf_guests')}} @else {{$booking->num_uf_guests}} @endif"/>
     @error('num_uf_guests')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -58,7 +59,7 @@
     <br>
 
     <label>additional service</label>
-    <input type="text" name="additional_service" value="{{old('additional_service')}}"/>
+    <input type="text" name="additional_service" value="@if(old('additional_service')) {{old('additional_service')}} @else {{$booking->additional_service}} @endif"/>
     @error('additional_service')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -66,7 +67,7 @@
     <br>
 
     <label>status</label>
-    <input type="text" name="status" value="{{old('status')}}"/>
+    <input type="text" name="status" value="@if(old('status')) {{old('status')}} @else {{$booking->status}} @endif"/>
     @error('status')
     <div class="wrong">{{$message}}</div>
     @enderror

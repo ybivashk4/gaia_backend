@@ -42,7 +42,7 @@
     <br>
 
     <label>date</label>
-    <input type="date" name="date" value="{{old('date')}}"/>
+    <input type="datetime-local" name="date" value="{{old('date')}}"/>
     @error('date')
     <div class="wrong">{{$message}}</div>
     @enderror

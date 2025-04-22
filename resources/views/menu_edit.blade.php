@@ -18,7 +18,7 @@
     @csrf
 
     <label>category</label>
-    <input type="text" name="category" value="{{old('category')}}"/>
+    <input type="text" name="category" value="@if(old('category')) {{old('category')}} @else {{$menu->category}} @endif"/>
     @error('category')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -26,7 +26,7 @@
     <br>
 
     <label>name</label>
-    <input type="text" name="name" value="{{old('name')}}"/>
+    <input type="text" name="name" value="@if(old('name')) {{old('name')}} @else {{$menu->name}} @endif"/>
     @error('name')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -34,7 +34,7 @@
     <br>
 
     <label>description</label>
-    <input type="text" name="description" value="{{old('description')}}"/>
+    <input type="text" name="description" value="@if(old('description')){{old('description')}} @else {{$menu->description}} @endif"/>
     @error('description')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -42,7 +42,7 @@
     <br>
 
     <label>price</label>
-    <input type="text" name="price" value="{{old('price')}}"/>
+    <input type="text" name="price" value="@if(old('price')) {{old('price')}} @else {{$menu->price}} @endif"/>
     @error('price')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -50,7 +50,7 @@
     <br>
 
     <label>allergens</label>
-    <input type="text" name="allergens" value="{{old('allergens')}}"/>
+    <input type="text" name="allergens" value="@if(old('allergens')) {{old('allergens')}} @else {{$menu->allergens}} @endif"/>
     @error('allergens')
     <div class="wrong">{{$message}}</div>
     @enderror
@@ -58,11 +58,11 @@
     <br>
 
     <label>image</label>
-    <input type="file" accept="image/*" name="image" value="{{old('image')}}" alt="wrong image"/>
+    <img src="../../{{ asset($menu->image)}}" alt="error" width="100px" height="100px">
+    <input type="file" accept="image/*" name="image" value="@if(old('image')) {{old('image')}} @else{{'../../'.asset($menu->image)}}@endif" alt="wrong image"/>
     @error('image')
     <div class="wrong">{{$message}}</div>
     @enderror
-
     <br>
     <input type="submit">
 
