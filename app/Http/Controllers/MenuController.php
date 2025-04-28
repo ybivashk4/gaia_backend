@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $perpage = $request->perpage;
         return view('menu', [
-            'menu' => Menu::all()
+            'menu' => Menu::paginate($perpage)->withQueryString()
         ]);
     }
 

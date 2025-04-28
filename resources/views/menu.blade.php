@@ -35,7 +35,11 @@
             </td>
         </tr>
     @endforeach
+
 </table>
 <a href="{{url('menu/create')}}">create</a>
+<div style="display: flex">
+    {{ $menu->links() }}
+</div>
 </body>
 </html>
