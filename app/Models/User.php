@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin($id) {
+        echo User::all()->where('id', $id)->first()->user_type;
+        echo strcmp(User::all()->where('id', $id)->first()->user_type, 'admin ');
+        return strcmp(User::all()->where('id', $id)->first()->user_type, 'admin') == 0;
+    }
 }

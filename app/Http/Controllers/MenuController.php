@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
     public function index(Request $request)
     {
-        $perpage = $request->perpage;
+        $perpage = $request->perpage ?? 2;
         return view('menu', [
             'menu' => Menu::paginate($perpage)->withQueryString()
         ]);
@@ -73,6 +74,9 @@ class MenuController extends Controller
 
     public function delete(string $id)
     {
+        if (!Gate::allows('destroy-menu', Menu::all()->where('id', $id)->first())) {
+            abort(403);
+        }
         $menu = Menu::all()->where('id', $id)->first();
         $menu->delete();
         return redirect('/menu');
