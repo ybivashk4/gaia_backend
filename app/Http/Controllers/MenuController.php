@@ -12,7 +12,7 @@ class MenuController extends Controller
     {
         $perpage = $request->perpage ?? 2;
         return view('menu', [
-            'menu' => Menu::paginate($perpage)->withQueryString()
+            'menu' => Menu::all()
         ]);
     }
 
@@ -75,7 +75,7 @@ class MenuController extends Controller
     public function delete(string $id)
     {
         if (!Gate::allows('destroy-menu', Menu::all()->where('id', $id)->first())) {
-            abort(403);
+            return redirect('/error')->with('message', 'У вас нет прав удалять позицию с номером' . $id);
         }
         $menu = Menu::all()->where('id', $id)->first();
         $menu->delete();

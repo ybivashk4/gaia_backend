@@ -1,14 +1,14 @@
 @if ($paginator->hasPages())
-    <nav>
-        <ul class="pagination">
+    <nav class="container">
+        <ul class="pagination container flex-row align-items-center me-auto pe-auto">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
-                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <span aria-hidden="true">&lsaquo;</span>
+                <li class="disabled carousel-control-prev-icon bg-info me-4" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                    <span aria-hidden="true"></span>
                 </li>
             @else
-                <li>
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                <li class="carousel-control-prev-icon me-4">
+                    <a class="carousel-control-prev-icon bg-info" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"></a>
                 </li>
             @endif
 
@@ -23,9 +23,9 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active" aria-current="page"><span>{{ $page }}</span></li>
+                            <li class="active link-info fs-4 me-4" aria-current="page"><span>{{ $page }}</span></li>
                         @else
-                            <li><a href="{{ $url }}">{{ $page }}</a></li>
+                            <li class="me-4"><a class="link-info fs-4" href="{{ $url }}">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif
@@ -33,24 +33,16 @@
 
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
-                <li>
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                <li class="me-4">
+                    <a class="carousel-control-next-icon bg-info " href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"></a>
                 </li>
             @else
-                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                    <span aria-hidden="true">&rsaquo;</span>
+                <li class="disabled carousel-control-next-icon bg-info me-4" aria-disabled="true" aria-label="@lang('pagination.next')">
+                    <span aria-hidden="true"></span>
                 </li>
             @endif
         </ul>
-        <span>Элементов на странице:</span>
-        <form method="get" action="{{url('menu')}}">
-            <select name="perpage">
-                <option value="2" @if(intval($paginator->perPage()) == 2) selected @endif>2</option>
-                <option value="3" @if(intval($paginator->perPage()) == 3) selected @endif>3</option>
-                <option value="4" @if(intval($paginator->perPage()) == 4) selected @endif>4</option>
-            </select>
-            <input type="submit" value="Изменить">
-        </form>
+
     </nav>
 
 @endif

@@ -43,4 +43,13 @@
             @endif
         </ul>
     </nav>
+    <span class="dropdown-header">Элементов на странице:</span>
+    <form class="form-check" method="get" action="{{url('menu')}}">
+        <select class="dropdown" name="perpage">
+            <option class="dropdown-item" value="2" @if(intval($paginator->perPage()) == 2) selected @endif>2</option>
+            <option class="dropdown-item" value="3" @if(intval($paginator->perPage()) == 3) selected @endif>3</option>
+            <option class="dropdown-item" value="4" @if(intval($paginator->perPage()) == 4) selected @endif>4</option>
+        </select>
+        <input class="btn btn-primary " type="submit" value="Изменить">
+    </form>
 @endif

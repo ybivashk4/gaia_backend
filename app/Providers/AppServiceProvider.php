@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::defaultView('vendor.pagination.default');
+        Paginator::defaultView('vendor.pagination.bootstrap-4');
 
         Gate::define('destroy-menu', function (User $user) {
             return $user->isAdmin($user->id);

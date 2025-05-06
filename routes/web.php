@@ -12,7 +12,7 @@ use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/hi', function () {
@@ -80,4 +80,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');;
 Route::get('/logout', [LoginController::class, 'logout']);
 Route::post('/auth', [LoginController::class, 'authenticate']);
 
-
+Route::get('/error', function() {
+    return view('error', ['message' => session('message')]);
+    }
+);

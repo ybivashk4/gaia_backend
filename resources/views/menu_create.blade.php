@@ -1,72 +1,65 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .wrong {
-            color: rgba(218, 27, 55, 0.64);
-        }
-    </style>
-</head>
-<body>
-<h2>Добавление зала</h2>
-<form enctype="multipart/form-data" method="post" action={{url('menu')}}>
-    @csrf
+@extends('layout')
+@section('content')
+    <hr>
 
-    <label>category</label>
-    <input type="text" name="category" value="{{old('category')}}"/>
-    @error('category')
-    <div class="wrong">{{$message}}</div>
-    @enderror
+    <div class="row justify-content-center font-monospace">
+    <div class="col-3">
+    <h2 class="modal-header">Создание позиции в меню</h2>
+    </div>
+    <div class="col-9 ">
+    <form class="form-control justify-content-center align-items-center flex-column w-25" enctype="multipart/form-data" method="post" action={{url('menu')}}>
+        @csrf
+        <div class="mb-3 col-form-label">
+            <label class="form-label">category</label>
+            <input class="input-group-text" type="text" name="category" value="{{old('category')}}"/>
+            @error('category')
+            <div class="wrong">{{$message}}</div>
+            @enderror
+        </div>
 
-    <br>
 
-    <label>name</label>
-    <input type="text" name="name" value="{{old('name')}}"/>
-    @error('name')
-    <div class="wrong">{{$message}}</div>
-    @enderror
+        <div class="mb-3 col-form-label">
+            <label class="form-label">name</label>
+            <input class="input-group-text" type="text" name="name" value="{{old('name')}}"/>
+            @error('name')
+            <div class="wrong">{{$message}}</div>
+            @enderror
+        </div>
 
-    <br>
+        <div class="mb-3 col-form-label">
+            <label class="form-label">description</label>
+            <input class="input-group-text" type="text" name="description" value="{{old('description')}}"/>
+            @error('description')
+            <div class="wrong">{{$message}}</div>
+            @enderror
+        </div>
 
-    <label>description</label>
-    <input type="text" name="description" value="{{old('description')}}"/>
-    @error('description')
-    <div class="wrong">{{$message}}</div>
-    @enderror
+        <div class="mb-3 col-form-label">
+            <label class="form-label">price</label>
+            <input class="input-group-text" type="text" name="price" value="{{old('price')}}"/>
+            @error('price')
+            <div class="wrong">{{$message}}</div>
+            @enderror
+        </div>
 
-    <br>
+        <div class="mb-3 col-form-label">
+            <label class="form-label">allergens</label>
+            <input class="input-group-text" type="text" name="allergens" value="{{old('allergens')}}"/>
+            @error('allergens')
+            <div class="wrong">{{$message}}</div>
+            @enderror
+        </div>
 
-    <label>price</label>
-    <input type="text" name="price" value="{{old('price')}}"/>
-    @error('price')
-    <div class="wrong">{{$message}}</div>
-    @enderror
+        <div class="mb-3 col-form-label">
+        <input class="fa-file-image-o" type="file" accept="image/*" name="image" value="{{old('image')}}" alt="wrong image"/>
+        @error('image')
+        <div class="wrong">{{$message}}</div>
+        @enderror
+        </div>
+        <input type="submit" class="btn btn-primary">
 
-    <br>
+    </form>
+    </div>
+</div>
 
-    <label>allergens</label>
-    <input type="text" name="allergens" value="{{old('allergens')}}"/>
-    @error('allergens')
-    <div class="wrong">{{$message}}</div>
-    @enderror
-
-    <br>
-
-    <label>image</label>
-    <input type="file" accept="image/*" name="image" value="{{old('image')}}" alt="wrong image"/>
-    @error('image')
-    <div class="wrong">{{$message}}</div>
-    @enderror
-
-    <br>
-    <input type="submit">
-
-</form>
-
-</body>
-</html>
+@endsection
