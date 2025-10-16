@@ -55,12 +55,12 @@ Route::get('/hall/edit/{id}', [HallController::class, 'edit'])->middleware('auth
 Route::post('/hall/update/{id}', [HallController::class, 'update'])->middleware('auth');
 Route::get('/hall/delete/{id}', [HallController::class, 'delete'])->middleware('auth');
 
-//Route::get('/menu', [MenuController::class, 'index']);
-//Route::get('/menu/create', [MenuController::class, 'create'])->middleware('auth');
-//Route::post('/menu', [MenuController::class, 'store'])->middleware('auth');
-//Route::get('/menu/edit/{id}', [MenuController::class, 'edit'])->middleware('auth');
-//Route::post('/menu/update/{id}', [MenuController::class, 'update'])->middleware('auth');
-//Route::get('/menu/delete/{id}', [MenuController::class, 'delete'])->middleware('auth');
+Route::get('/menu', [MenuController::class, 'index']);
+Route::get('/menu/create', [MenuController::class, 'create'])->middleware('auth');
+Route::post('/menu', [MenuController::class, 'store'])->middleware('auth');
+Route::get('/menu/edit/{id}', [MenuController::class, 'edit'])->middleware('auth');
+Route::post('/menu/update/{id}', [MenuController::class, 'update'])->middleware('auth');
+Route::get('/menu/delete/{id}', [MenuController::class, 'delete'])->middleware('auth');
 
 Route::get('/review', [ReviewController::class, 'index']);
 Route::get('/review/create', [ReviewController::class, 'create'])->middleware('auth');
