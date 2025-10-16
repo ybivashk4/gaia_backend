@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingControllerApi;
 use App\Http\Controllers\EmployeeScheduleControllerApi;
 use App\Http\Controllers\EmployeeTaskControllerApi;
@@ -14,12 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/booking', [BookingControllerApi::class, 'index']);
 Route::get('/booking/{id}', [BookingControllerApi::class, 'show']);
-
-Route::get('/employeeSchedule', [EmployeeScheduleControllerApi::class, 'index']);
-Route::get('/employeeSchedule/{id}', [EmployeeScheduleControllerApi::class, 'show']);
-
-Route::get('/employeeTask', [EmployeeTaskControllerApi::class, 'index']);
-Route::get('/employeeTask/{id}', [EmployeeTaskControllerApi::class, 'show']);
 
 Route::get('/event', [EventControllerApi::class, 'index']);
 Route::get('/event/{id}', [EventControllerApi::class, 'show']);
@@ -35,3 +30,16 @@ Route::get('/review/{id}', [ReviewControllerApi::class, 'show']);
 
 Route::get('/shop', [ShopControllerApi::class, 'index']);
 Route::get('/shop/{id}', [ShopControllerApi::class, 'show']);
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/employeeSchedule', [EmployeeScheduleControllerApi::class, 'index']);
+    Route::get('/employeeSchedule/{id}', [EmployeeScheduleControllerApi::class, 'show']);
+
+    Route::get('/employeeTask', [EmployeeTaskControllerApi::class, 'index']);
+    Route::get('/employeeTask/{id}', [EmployeeTaskControllerApi::class, 'show']);
+
+    Route::get('/user', [AuthController::class, 'user']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+});
