@@ -24,7 +24,6 @@ class BookingController extends Controller
             'halls' => Hall::all()
         ]);
     }
-
     public function store(Request $request)
     {
         $validated = $request->validate([

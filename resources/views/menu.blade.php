@@ -32,7 +32,7 @@
                     {{$menu_item->description}}
                 </p>
                 <p class="card-text fs-4">
-                    {{$menu_item->price}} P
+                    {{$menu_item->price}}
                 </p>
                 <p class="card-text">
                     Аллергены {{$menu_item->allergens}}
