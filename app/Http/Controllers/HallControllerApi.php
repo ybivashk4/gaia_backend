@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hall;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HallControllerApi extends Controller
 {
@@ -27,8 +29,14 @@ class HallControllerApi extends Controller
      */
     public function store(Request $request)
     {
+//        if (! Gate::allows('create-hall')) {
+//            return response()->json([
+//                'code' => '1',
+//                'message' => 'У вас нет прав на создание карточки зала'
+//            ], 403);
+//        }
         $validated = $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|unique:halls|max:255',
             'description' => 'required|string',
             'capacity' => 'required|integer',
             'image' => 'required|image'
@@ -36,12 +44,26 @@ class HallControllerApi extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            move_uploaded_file($image->getRealPath(), public_path('images/' . $filename));
-            $validated['image'] = $filename;
+//            move_uploaded_file($image->getRealPath(), public_path('images/' . $filename));
+//            $validated['image'] = $filename;
+            try {
+                $path = Storage::disk('s3')->putFile('/halls_pictures', $image, $filename);
+                $fileUrl = Storage::disk('s3')->url($path);
+            }
+            catch (\Exception $e) {
+                return response()->json([
+                    'code' => '2',
+                    'message' => 'Ошибка загрузки файла в хранилище s3'
+                ]);
+            }
         }
-        $menu = new Hall($validated);
-        $menu->save();
-        return redirect()->back();
+        $hall = new Hall($validated);
+        $hall->image = $fileUrl;
+        $hall->save();
+        return response()->json([
+            'code' => '0',
+            'message' => 'Категория успешно добавлена'
+        ]);
     }
 
     /**

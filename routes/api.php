@@ -25,7 +25,6 @@ route::get('/hall_total', [HallControllerApi::class, 'total']);
 Route::get('/hall/{id}', [HallControllerApi::class, 'show']);
 Route::get('/hall/pictures/{name}', [HallControllerApi::class, 'get_picture']);
 
-
 Route::get('/menu', [MenuControllerApi::class, 'index']);
 Route::get('/menu/{id}', [MenuControllerApi::class, 'show']);
 Route::post('/menu/{id}', [MenuControllerApi::class, 'update']);

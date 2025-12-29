@@ -22,10 +22,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+//        $this->registerPolicies();
         Paginator::defaultView('vendor.pagination.bootstrap-4');
 
         Gate::define('destroy-menu', function (User $user) {
             return $user->isAdmin($user->id);
+        });
+
+        Gate::define('create-halls', function (User $user) {
+            return true;
         });
     }
 }
